@@ -7,16 +7,16 @@ services (`{ name, actions }`) published as MCP tools — one public, one demons
 
 ## What's here
 
-| File                                                   | Purpose                                                                                                                                                                       |
-| ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [services/Library.js](./services/Library.js)           | `Library` — a small in-memory book store (`addBook`, `getBook`, `listBooks`), public, no auth. Each action becomes an MCP tool named `"Library.<actionName>"`.                |
+| File                                                   | Purpose                                                                                                                                                                     |
+| ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [services/Library.js](./services/Library.js)           | `Library` — a small in-memory book store (`addBook`, `getBook`, `listBooks`), public, no auth. Each action becomes an MCP tool named `"Library.<actionName>"`.              |
 | [services/LibraryAdmin.js](./services/LibraryAdmin.js) | `LibraryAdmin` — demo of `@empyria/mcp`'s `resolveToken`/`withMetaGuard` feature. Its one action, `resetLibrary`, requires a valid token on a custom header before it runs. |
-| [services/Server.js](./services/Server.js)             | Publishes both services over MCP-over-HTTP via `serveMcpHttp`, passing `guard: { tokenHeader: GUARD_TOKEN_HEADER }` so `LibraryAdmin` actually enforces its guard.            |
+| [services/Server.js](./services/Server.js)             | Publishes both services over MCP-over-HTTP via `serveMcpHttp`, passing `guard: { tokenHeader: GUARD_TOKEN_HEADER }` so `LibraryAdmin` actually enforces its guard.          |
 
 ## Environment variables
 
 All optional — see [env.js](./env.js) for the schema (built on `@empyria/common`'s
-`createEnv`, which adds the shared Principia defaults).
+`createEnv`, which adds the shared Empyria defaults).
 
 | Variable              | Default            | Purpose                                                                                                                            |
 | --------------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |

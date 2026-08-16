@@ -2,7 +2,7 @@
 	"name": "@empyria/mcp-scaffold",
 	"version": "0.1.0",
 	"private": true,
-	"description": "MCP scaffold for Principia",
+	"description": "MCP scaffold for Empyria",
 	"keywords": [
 		"mcp"
 	],

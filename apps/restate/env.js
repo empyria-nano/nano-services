@@ -1,7 +1,7 @@
 import { createEnv, validate, number, string } from '@empyria/common'
 
 /**
- * Environment schema for the `restate` app: the Principia-wide defaults from
+ * Environment schema for the `restate` app: the Empyria-wide defaults from
  * {@link createEnv} plus everything `services/Server.js` needs to register this
  * endpoint's services with a running Restate server.
  */

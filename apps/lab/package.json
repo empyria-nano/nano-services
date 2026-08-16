@@ -2,7 +2,7 @@
 	"name": "@empyria/lab",
 	"version": "0.1.0",
 	"private": true,
-	"description": "Lab services for Principia",
+	"description": "Lab services for Empyria",
 	"keywords": [
 		"lab",
 		"monitoring"
@@ -24,9 +24,9 @@
 		"test:watch": "bun test --watch"
 	},
 	"dependencies": {
-		"@moleculer/lab": "1.0.0",
 		"@empyria/common": "catalog:",
 		"@empyria/moleculer": "catalog:",
+		"@moleculer/lab": "1.0.0",
 		"moleculer": "catalog:",
 		"pino": "catalog:"
 	},

@@ -1,8 +1,8 @@
 {
-	"name": "@empyria/principia-fluxus",
-	"version": "0.1.0",
+	"name": "@empyria/empyria-fluxus",
+	"version": "0.1.1",
 	"private": true,
-	"description": "Principia: Agent-ready canonical scaffold for nano-services",
+	"description": "Empyria: Agent-ready canonical scaffold for nano-services",
 	"repository": {
 		"type": "git",
 		"url": "git+ssh://git@github.com:imrefazekas/empyria-nano-services.git"
@@ -26,11 +26,11 @@
 			"@restatedev/restate-sdk-core": "1.6.1",
 			"@modelcontextprotocol/client": "2.0.0",
 			"@modelcontextprotocol/server": "2.0.0",
-			"@empyria/classification": "0.1.0",
-			"@empyria/common": "0.1.0",
-			"@empyria/moleculer": "0.1.0",
-			"@empyria/restate": "0.1.0",
-			"@empyria/mcp": "0.1.0"
+			"@empyria/classification": "0.1.1",
+			"@empyria/common": "0.1.1",
+			"@empyria/moleculer": "0.1.1",
+			"@empyria/restate": "0.1.1",
+			"@empyria/mcp": "0.1.1"
 		}
 	},
 	"scripts": {
@@ -44,11 +44,11 @@
 		"test:e2e": "bun test --watch"
 	},
 	"dependencies": {
-		"@empyria/classification": "0.1.0",
-		"@empyria/common": "0.1.0",
-		"@empyria/moleculer": "0.1.0",
-		"@empyria/restate": "0.1.0",
-		"@empyria/mcp": "0.1.0"
+		"@empyria/classification": "0.1.1",
+		"@empyria/common": "0.1.1",
+		"@empyria/moleculer": "0.1.1",
+		"@empyria/restate": "0.1.1",
+		"@empyria/mcp": "0.1.1"
 	},
 	"devDependencies": {
 		"oxfmt": "catalog:",

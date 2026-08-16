@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Agent-ready canonical scaffold for **Principia** nano-services: a multi-app workspace
+Agent-ready canonical scaffold for **Empyria** nano-services: a multi-app workspace
 (Moleculer, Restate, and MCP apps side by side) assembled from independent sibling repos
 and run as a single unit via nx. This file is the "what will bite you" companion to
 [README.md](./README.md) — most of it is hard-won from getting local dev linking and env
@@ -84,7 +84,7 @@ old, shared one. The installed copy under `node_modules/.bun/...` silently keeps
 the _pre-edit_ content.
 
 Practical upshot: after editing anything in `empyria-common`, `empyria-classification`,
-or any of the `principia-guard-*` repos, **you must `rm -rf node_modules bun.lock &&
+or any of the `empyria-guard-*` repos, **you must `rm -rf node_modules bun.lock &&
 bun install`** in `empyria-nano-services` (and in any app whose `node_modules` might
 have its own stale copy) before the change is visible here. There's no warning when this
 goes stale — it just silently runs old code. If a fix "isn't working" after editing a
@@ -101,7 +101,7 @@ worth understanding if you touch `env.js` in any app:
 1. **`process.env` only ever holds strings.** `process.env.PORT = 4040` is immediately
    `"4040"`, not `4040` — Node coerces on assignment, unconditionally. `ata-validator`
    (used by `createEnv`/`validate`) does **not** coerce types by default, so any
-   explicitly-set numeric/boolean env var (`PRINCIPIA_PROMETHEUS_PORT=4040`,
+   explicitly-set numeric/boolean env var (`EMPYRIA_PROMETHEUS_PORT=4040`,
    `RESET=true`, ...) fails strict `type: 'number'`/`type: 'boolean'` validation. Every
    `env.js` passes `{ coerceTypes: true }` as `validate`'s third argument to handle this —
    see `empyria-common/lib/Ata.js`'s `createValidator`/`validate`, which forward an
@@ -110,7 +110,7 @@ worth understanding if you touch `env.js` in any app:
    should stay strict.
 2. **`ata-validator`'s `useDefaults` mutates its input object in place** — and combines
    badly with fact 1. If `env.js` validates `process.env` directly instead of a copy,
-   filling in a missing default (`data.PRINCIPIA_ID_LENGTH = 32`) writes straight onto the
+   filling in a missing default (`data.EMPYRIA_ID_LENGTH = 32`) writes straight onto the
    real `process.env`, which immediately stringifies it back to `"32"` — corrupting the
    very value validation just set, which then fails re-validation. Every `env.js`
    validates `{ ...process.env }` (a plain copy) for exactly this reason. Never pass

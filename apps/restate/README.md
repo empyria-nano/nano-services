@@ -17,7 +17,7 @@ virtual object, an agent-shaped service, and a workflow orchestrating all three.
 ## Environment variables
 
 All optional — see [env.js](./env.js) for the schema (built on `@empyria/common`'s
-`createEnv`, which adds the shared Principia defaults).
+`createEnv`, which adds the shared Empyria defaults).
 
 | Variable              | Default                 | Purpose                                                       |
 | --------------------- | ----------------------- | ------------------------------------------------------------- |

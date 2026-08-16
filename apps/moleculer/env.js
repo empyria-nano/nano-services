@@ -1,11 +1,11 @@
 import { createEnv, validate, number } from '@empyria/common'
 
 /**
- * Environment schema for the `acme` app: the Principia-wide defaults from
+ * Environment schema for the `acme` app: the Empyria-wide defaults from
  * {@link createEnv} plus this service's Prometheus port.
  */
 const schema = createEnv({
-	PRINCIPIA_PROMETHEUS_PORT: number(3031),
+	EMPYRIA_PROMETHEUS_PORT: number(3031),
 })
 
 /**
@@ -16,7 +16,7 @@ const schema = createEnv({
  * `process.env` directly gets silently stringified by Node (env vars are string-only),
  * which then fails re-validation. `coerceTypes: true` is required for the same reason:
  * every value actually *set* in the environment (not just defaulted) arrives as a
- * string, e.g. `PRINCIPIA_PROMETHEUS_PORT=4040` is `"4040"`, not `4040`. See AGENTS.md.
+ * string, e.g. `EMPYRIA_PROMETHEUS_PORT=4040` is `"4040"`, not `4040`. See AGENTS.md.
  */
 export const env = validate(schema, { ...process.env }, { coerceTypes: true })
 

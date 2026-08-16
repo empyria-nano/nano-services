@@ -1,6 +1,6 @@
 # empyria-nano-services
 
-Agent-ready canonical scaffold for **Principia** nano-services, built on Bun and plain
+Agent-ready canonical scaffold for **Empyria** nano-services, built on Bun and plain
 ESM. It's a multi-app workspace, not a monorepo in the usual sense: it embraces
 independent _applications_ — Moleculer services, Restate workflows, MCP servers — side by
 side, alongside project-specific libraries, and runs them as a single unit via
@@ -88,7 +88,7 @@ Moleculer, `apps/restate` for Restate, `apps/mcp` for MCP — as a starting poin
    it depends on, see AGENTS.md), keep `"type": "module"`, declare only the `@empyria/*`
    and npm packages this app's own
    source actually imports.
-2. `env.js` — a `createEnv({...})` schema for anything beyond the shared Principia
+2. `env.js` — a `createEnv({...})` schema for anything beyond the shared Empyria
    defaults, validated with `{ coerceTypes: true }` against a _copy_ of `process.env`.
 3. Moleculer apps: `moleculer.config.js` copies as-is (it reads everything from `env.js`);
    `services/<Name>.service.js` mixes in `BaseMixin` at minimum. Restate/MCP apps have no

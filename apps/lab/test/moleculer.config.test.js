@@ -3,8 +3,8 @@ import config from '../moleculer.config.js'
 import { env } from '../env.js'
 
 describe('apps/lab moleculer.config.js', () => {
-	test('runs in the Principia namespace with a unique per-process node ID', () => {
-		expect(config.namespace).toBe('Principia')
+	test('runs in the Empyria namespace with a unique per-process node ID', () => {
+		expect(config.namespace).toBe('Empyria')
 		expect(config.nodeID).toMatch(/^Server-/)
 	})
 
@@ -15,7 +15,7 @@ describe('apps/lab moleculer.config.js', () => {
 	})
 
 	test('Prometheus metrics reporter listens on the configured port', () => {
-		expect(config.metrics.reporter.options.port).toBe(Number(env.PRINCIPIA_PROMETHEUS_PORT))
+		expect(config.metrics.reporter.options.port).toBe(Number(env.EMPYRIA_PROMETHEUS_PORT))
 	})
 
 	test('registers the MetaGuard middleware', () => {

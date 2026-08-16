@@ -2,7 +2,7 @@
 	"name": "@empyria/restate-scaffold",
 	"version": "0.1.0",
 	"private": true,
-	"description": "Restate scaffold for Principia",
+	"description": "Restate scaffold for Empyria",
 	"keywords": [
 		"restate",
 		"scaffold"

@@ -30,7 +30,7 @@ import { randomUUID as uuid } from 'node:crypto'
  */
 export default {
 	// Namespace of nodes to segment your nodes on the same network.
-	namespace: 'Principia',
+	namespace: 'Empyria',
 	// Unique node identifier. Must be unique in a namespace.
 	nodeID: 'Server-' + uuid(),
 
@@ -189,7 +189,7 @@ export default {
 			type: 'Prometheus',
 			options: {
 				// HTTP port
-				port: env.PRINCIPIA_PROMETHEUS_PORT ? Number(env.PRINCIPIA_PROMETHEUS_PORT) : 3030,
+				port: env.EMPYRIA_PROMETHEUS_PORT ? Number(env.EMPYRIA_PROMETHEUS_PORT) : 3030,
 				// HTTP URL path
 				path: '/metrics',
 				// Default labels which are appended to all metrics labels
@@ -221,7 +221,7 @@ export default {
 	},
 
 	// Register custom middlewares
-	// MetaGuard (from @empyria/moleculer) stamps/validates the Principia meta
+	// MetaGuard (from @empyria/moleculer) stamps/validates the Empyria meta
 	// (actor/federation/flow/process IDs) on every incoming context. `resolveUser: false`
 	// skips looking up a full user record — this scaffold doesn't wire up auth yet.
 	middlewares: [

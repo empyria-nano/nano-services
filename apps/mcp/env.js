@@ -1,7 +1,7 @@
 import { createEnv, validate, string, number } from '@empyria/common'
 
 /**
- * Environment schema for the `mcp` app: the Principia-wide defaults from {@link createEnv}
+ * Environment schema for the `mcp` app: the Empyria-wide defaults from {@link createEnv}
  * plus everything `services/Server.js` needs to identify and serve this MCP endpoint.
  */
 const schema = createEnv({

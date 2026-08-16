@@ -4,7 +4,7 @@ import { settings } from '../env.js'
 
 /**
  * Acme microservice. Currently a starter scaffold: no custom actions/events yet, wired
- * up with {@link BaseMixin} for the Principia meta-stamping and `packageVersion` action.
+ * up with {@link BaseMixin} for the Empyria meta-stamping and `packageVersion` action.
  *
  * `settings` is the env-derived object from `../env.js` — the standard way to configure
  * a Moleculer service here. Note that it currently carries the *entire* process
