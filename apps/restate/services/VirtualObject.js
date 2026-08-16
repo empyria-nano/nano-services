@@ -1,4 +1,4 @@
-import { restate, defineObject } from '@principia/restate'
+import { restate, defineObject } from '@empyria/restate'
 
 const VALUE_STATE_NAME = 'value'
 

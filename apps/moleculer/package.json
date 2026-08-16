@@ -1,5 +1,5 @@
 {
-	"name": "@principia/moleculer-scaffold",
+	"name": "@empyria/moleculer-scaffold",
 	"version": "0.1.0",
 	"private": true,
 	"description": "Moleculer scaffold for Principia",
@@ -19,8 +19,8 @@
 		"test:watch": "bun test --watch"
 	},
 	"dependencies": {
-		"@principia/common": "file:../../../principia-common",
-		"@principia/moleculer": "file:../../../principia-guard-moleculer",
+		"@empyria/common": "catalog:",
+		"@empyria/moleculer": "catalog:",
 		"moleculer": "catalog:",
 		"pino": "catalog:"
 	},

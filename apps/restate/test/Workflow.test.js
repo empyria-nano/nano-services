@@ -5,7 +5,7 @@ import { AgentService } from '../services/Agent.js'
 import { StorageObject } from '../services/VirtualObject.js'
 
 // ctx.serviceClient/ctx.objectClient are bound to a *definition object* at compile
-// time (see AGENTS.md and CallerServiceDef's own docs in @principia/restate for why
+// time (see AGENTS.md and CallerServiceDef's own docs in @empyria/restate for why
 // dynamic-by-name dispatch needs a different construct) — the mock below dispatches on
 // object identity against the actual imported definitions, the same way real Restate
 // client typing does.

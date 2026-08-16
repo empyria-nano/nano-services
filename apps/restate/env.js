@@ -1,4 +1,4 @@
-import { createEnv, validate, number, string } from '@principia/common'
+import { createEnv, validate, number, string } from '@empyria/common'
 
 /**
  * Environment schema for the `restate` app: the Principia-wide defaults from

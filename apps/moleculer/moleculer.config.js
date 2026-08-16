@@ -1,6 +1,6 @@
 import { env } from './env.js'
 
-import { MetaGuard } from '@principia/moleculer'
+import { MetaGuard } from '@empyria/moleculer'
 import { randomUUID as uuid } from 'node:crypto'
 
 /**
@@ -221,7 +221,7 @@ export default {
 	},
 
 	// Register custom middlewares
-	// MetaGuard (from @principia/moleculer) stamps/validates the Principia meta
+	// MetaGuard (from @empyria/moleculer) stamps/validates the Principia meta
 	// (actor/federation/flow/process IDs) on every incoming context. `resolveUser: false`
 	// skips looking up a full user record — this scaffold doesn't wire up auth yet.
 	middlewares: [

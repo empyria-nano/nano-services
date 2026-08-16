@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto'
-import { string } from '@principia/common'
+import { string } from '@empyria/common'
 
 /** In-memory book store — resets on every process restart. */
 const books = new Map()
@@ -14,7 +14,7 @@ export function clearLibrary() {
 
 /**
  * Simple in-memory "Library" MCP service — the MCP equivalent of a Moleculer service:
- * a plain `{ name, actions }` object (see `@principia/mcp`'s `ServiceDef`), where every
+ * a plain `{ name, actions }` object (see `@empyria/mcp`'s `ServiceDef`), where every
  * action becomes an MCP tool named `"Library.<actionName>"`.
  */
 export default {

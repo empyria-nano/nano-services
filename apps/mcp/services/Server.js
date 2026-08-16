@@ -1,4 +1,4 @@
-import { serveMcpHttp } from '@principia/mcp'
+import { serveMcpHttp } from '@empyria/mcp'
 
 import { env } from '../env.js'
 import Library from './Library.js'
@@ -10,7 +10,7 @@ import LibraryAdmin, { GUARD_TOKEN_HEADER } from './LibraryAdmin.js'
  * `InMemoryTransport`, which binds no real network resource — without starting the real
  * HTTP server `setup` does. See AGENTS.md.
  *
- * `LibraryAdmin` demonstrates `@principia/mcp`'s token-guard feature — its actions only
+ * `LibraryAdmin` demonstrates `@empyria/mcp`'s token-guard feature — its actions only
  * work when called over HTTP with a valid token on {@link GUARD_TOKEN_HEADER}. See its
  * own docs.
  */
@@ -25,7 +25,7 @@ export const services = [Library, LibraryAdmin]
  *
  * Exported (rather than run unconditionally) so this module can be imported without side
  * effects, and only actually starts listening when this file is run directly.
- * @returns {ReturnType<import('@principia/mcp').serveMcpHttp>}
+ * @returns {ReturnType<import('@empyria/mcp').serveMcpHttp>}
  */
 export const setup = async () => {
 	const server = serveMcpHttp(

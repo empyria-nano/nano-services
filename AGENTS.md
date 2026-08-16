@@ -8,7 +8,7 @@ parsing working at all.
 
 ## Runtime
 
-- Requires Bun `>=1.4.0` or Node.js `>=26`, inherited from `@principia/classification`'s
+- Requires Bun `>=1.4.0` or Node.js `>=26`, inherited from `@empyria/classification`'s
   use of native `Temporal`.
 - Plain ESM, no TypeScript, no build step. Every `apps/*/package.json` needs
   `"type": "module"` explicitly — without it, Node has to sniff each file and reparses it
@@ -18,7 +18,7 @@ parsing working at all.
 
 ## Local dev linking: why `workspace:*` doesn't work here, and what does
 
-The five `@principia/*` packages this repo depends on
+The five `@empyria/*` packages this repo depends on
 (`classification`/`common`/`moleculer`/`restate`/`mcp`) live in **sibling repos on
 disk**, not nested inside this one — that's the whole point of the multi-repo design.
 That single fact rules out Bun's `workspace:*` protocol, and it took real trial and error
@@ -30,10 +30,10 @@ to nail down exactly why and what actually works instead:
    with the identical pattern doesn't.
 2. **Forcing an explicit (non-glob) workspace path that happens to be a symlink half-works,
    then breaks one level deeper.** The top-level `workspace:*` resolves fine, but Bun
-   computes the _nested_ dependency's relative symlink (e.g. `@principia/moleculer`'s own
-   dependency on `@principia/common`) using the workspace-declared virtual path depth
+   computes the _nested_ dependency's relative symlink (e.g. `@empyria/moleculer`'s own
+   dependency on `@empyria/common`) using the workspace-declared virtual path depth
    instead of the real, symlink-resolved depth. The symlink Bun writes ends up pointing at
-   a nonexistent location, and `@principia/common` throws `ERR_MODULE_NOT_FOUND` at
+   a nonexistent location, and `@empyria/common` throws `ERR_MODULE_NOT_FOUND` at
    runtime — only when actually importing through the chain, so this doesn't show up
    until an app tries to boot.
 3. **`workspaces.catalog` + `file:` has the same bug, worse.** Routing a `file:` path
@@ -45,30 +45,26 @@ to nail down exactly why and what actually works instead:
 **What actually works:** plain `file:../sibling-repo` dependencies, declared directly
 (not through a workspace glob, not through a catalog) in every `package.json` that needs
 one — root, each app, and critically **inside the sibling repos' own `package.json`
-too** (`principia-guard-moleculer`, `-restate`, `-mcp`, and `principia-common` all
-depend on `@principia/classification`/`@principia/common`). Since those four repos are
+too** (`empyria-guard-moleculer`, `-restate`, `-mcp`, and `empyria-common` all
+depend on `@empyria/classification`/`@empyria/common`). Since those four repos are
 independently "done" and keep git-URL dependencies for their own standalone/published
 use, this repo's root `package.json` carries an `overrides` block that forces
-`@principia/classification` and `@principia/common` to resolve to the same local `file:`
+`@empyria/classification` and `@empyria/common` to resolve to the same local `file:`
 links _everywhere in the install tree_, without editing those repos:
 
 ```json
 "dependencies": {
-  "@principia/classification": "file:../principia-classification",
-  "@principia/common": "file:../principia-common",
-  "@principia/moleculer": "file:../principia-guard-moleculer",
-  "@principia/restate": "file:../principia-guard-restate",
-  "@principia/mcp": "file:../principia-guard-mcp"
+  "@empyria/classification": "0.1.0",
+  "@empyria/common": "0.1.0",
+  "@empyria/moleculer": "0.1.0",
+  "@empyria/restate": "0.1.0",
+  "@empyria/mcp": "0.1.0"
 },
-"overrides": {
-  "@principia/classification": "file:../principia-classification",
-  "@principia/common": "file:../principia-common"
-}
 ```
 
 Each app that imports one of the five directly declares its own `file:` dependency too
 (relative to _that app's_ directory, e.g. `apps/lab/package.json` uses
-`file:../../../principia-guard-moleculer`) — declare only what the app's own source
+`file:../../../empyria-guard-moleculer`) — declare only what the app's own source
 actually imports; don't copy the full set from another app's `package.json` (that's how
 `apps/moleculer` ended up with an unused `@moleculer/lab` dependency at one point).
 
@@ -87,18 +83,18 @@ it over the old path), which allocates a fresh inode at the original path and or
 old, shared one. The installed copy under `node_modules/.bun/...` silently keeps serving
 the _pre-edit_ content.
 
-Practical upshot: after editing anything in `principia-common`, `principia-classification`,
+Practical upshot: after editing anything in `empyria-common`, `empyria-classification`,
 or any of the `principia-guard-*` repos, **you must `rm -rf node_modules bun.lock &&
-bun install`** in `principia-nano-services` (and in any app whose `node_modules` might
+bun install`** in `empyria-nano-services` (and in any app whose `node_modules` might
 have its own stale copy) before the change is visible here. There's no warning when this
 goes stale — it just silently runs old code. If a fix "isn't working" after editing a
 sibling repo, this is the first thing to check: `diff` the installed copy in
-`node_modules/.bun/@principia+<pkg>@file+.../node_modules/@principia/<pkg>/<file>` against
+`node_modules/.bun/@empyria+<pkg>@file+.../node_modules/@empyria/<pkg>/<file>` against
 the source.
 
 ## `process.env` gotchas in env parsing (`apps/*/env.js`)
 
-Every app validates its environment through `@principia/common`'s `createEnv`/`validate`.
+Every app validates its environment through `@empyria/common`'s `createEnv`/`validate`.
 Two non-obvious things about `process.env` specifically broke this, both now fixed but
 worth understanding if you touch `env.js` in any app:
 
@@ -108,7 +104,7 @@ worth understanding if you touch `env.js` in any app:
    explicitly-set numeric/boolean env var (`PRINCIPIA_PROMETHEUS_PORT=4040`,
    `RESET=true`, ...) fails strict `type: 'number'`/`type: 'boolean'` validation. Every
    `env.js` passes `{ coerceTypes: true }` as `validate`'s third argument to handle this —
-   see `principia-common/lib/Ata.js`'s `createValidator`/`validate`, which forward an
+   see `empyria-common/lib/Ata.js`'s `createValidator`/`validate`, which forward an
    optional `ValidatorOptions` object. This is opt-in per call site deliberately: the
    general-purpose `validate()` used elsewhere (e.g. Restate workflow I/O validation)
    should stay strict.
@@ -143,14 +139,14 @@ service's settings might ever be exposed beyond trusted callers.
 
 ## Don't name an app's package after a library it depends on
 
-`apps/restate`'s `package.json` was briefly named `@principia/restate` — the same name
-as the `@principia/restate` library (`principia-guard-restate`) it depends on. That's a
+`apps/restate`'s `package.json` was briefly named `@empyria/restate` — the same name
+as the `@empyria/restate` library (`empyria-guard-restate`) it depends on. That's a
 real collision, not just confusing: the app and its own dependency would both resolve
 under the identical package name in the install tree, making `import ... from
-'@principia/restate'` inside the app's own source ambiguous. It's now
-`@principia/restate-scaffold` (every app package here is named `@principia/<app>-scaffold`
-— `apps/moleculer` is `@principia/moleculer-scaffold`, `apps/mcp` is
-`@principia/mcp-scaffold`), which sidesteps the trap for every current and future app: the
+'@empyria/restate'` inside the app's own source ambiguous. It's now
+`@empyria/restate-scaffold` (every app package here is named `@empyria/<app>-scaffold`
+— `apps/moleculer` is `@empyria/moleculer-scaffold`, `apps/mcp` is
+`@empyria/mcp-scaffold`), which sidesteps the trap for every current and future app: the
 `-scaffold` suffix never matches a library's own name.
 
 ## Non-Moleculer apps need their own entrypoint
@@ -172,16 +168,16 @@ being directly runnable via `bun services/Server.js` — which is what those app
   `apps/restate/services/Agent.js`, whose `ask` handler is a deliberate stub for
   whoever wires up a real model call.
 - `restate.service({...})`/`restate.object({...})`/`restate.workflow({...})` (and
-  `@principia/restate`'s `defineService`/`defineObject`/`defineWorkflow` passthroughs)
+  `@empyria/restate`'s `defineService`/`defineObject`/`defineWorkflow` passthroughs)
   do **not** put your handlers under `.handlers` on the returned definition — they're at
   `.service`, `.object`, or `.workflow` respectively (e.g.
-  `HelloService.service.hello(ctx, input)`). Same fact `principia-guard-restate`'s own
+  `HelloService.service.hello(ctx, input)`). Same fact `empyria-guard-restate`'s own
   AGENTS.md notes for `restate.service`/`restate.object`; it's true for `workflow()` too.
 - Cross-construct calls from within a handler use `ctx.serviceClient(Def)`,
   `ctx.objectClient(Def, key)`, or `ctx.workflowClient(Def, key)` — bound to the actual
   definition object (not a name string), then called like `.methodName(args)`. See
   `apps/restate/services/Workflow.js`.
-- Tests mock `ctx` directly (matching `principia-guard-restate/test/Cron.test.js`'s own
+- Tests mock `ctx` directly (matching `empyria-guard-restate/test/Cron.test.js`'s own
   pattern) rather than exercising real Restate machinery — see
   `apps/restate/test/Workflow.test.js`. `setupRestate` binds a real HTTP/2 port and a
   health-check port, so `Server.js` is shape-tested only (its `services` array, exported
@@ -197,13 +193,13 @@ being directly runnable via `bun services/Server.js` — which is what those app
 - Services with no real I/O of their own are safe to exercise live:
     - Moleculer services built only on `BaseMixin` — a real, transporter-less, in-process
       `ServiceBroker` (see `apps/moleculer/test/Acme.service.test.js`, mirroring
-      `principia-guard-moleculer/test/Base.mixin.test.js`).
+      `empyria-guard-moleculer/test/Base.mixin.test.js`).
     - MCP servers via `createMcpServer` + `InMemoryTransport` (see
       `apps/mcp/test/Server.test.js`) — despite going through a real
       `@modelcontextprotocol/client` `Client`, this binds no real network resource at all,
-      unlike `serveMcpHttp`/`Bun.serve`. Matches `principia-guard-mcp`'s own test
+      unlike `serveMcpHttp`/`Bun.serve`. Matches `empyria-guard-mcp`'s own test
       convention.
-- One deliberate exception: `@principia/mcp`'s token guard (`resolveToken`/
+- One deliberate exception: `@empyria/mcp`'s token guard (`resolveToken`/
   `withMetaGuard`, demoed in `apps/mcp/services/LibraryAdmin.js`) reads the token from a
   real HTTP request header (`extra.http.req.headers`) — `InMemoryTransport` has no such
   thing, so it can only prove the _rejection_ path (no token ⇒ always rejected,

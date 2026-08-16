@@ -1,14 +1,14 @@
-# @principia/moleculer-scaffold
+# @empyria/moleculer-scaffold
 
 Starter Moleculer service scaffold for this workspace — no custom actions, events, or
 methods yet. It's the template to copy when adding a new Moleculer app: wired up with
-`BaseMixin` (from `@principia/moleculer`) for the standard Principia meta-stamping and
+`BaseMixin` (from `@empyria/moleculer`) for the standard Principia meta-stamping and
 `packageVersion` action, and nothing else.
 
 ## Environment variables
 
 All optional — see [env.js](./env.js) for the schema (built on
-`@principia/common`'s `createEnv`, which adds the shared Principia defaults:
+`@empyria/common`'s `createEnv`, which adds the shared Principia defaults:
 `PRINCIPIA_ID_LENGTH`, `NODE_ENV`, `LOG_LEVEL`, `MOLECULER_CACHE_*`, ...).
 
 | Variable                    | Default | Purpose                                          |

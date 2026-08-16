@@ -1,4 +1,4 @@
-import { defineService } from '@principia/restate'
+import { defineService } from '@empyria/restate'
 
 /**
  * Stateless Restate service exposing a single `hello` handler. The minimal example of

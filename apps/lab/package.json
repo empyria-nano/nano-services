@@ -1,5 +1,5 @@
 {
-	"name": "@principia/lab",
+	"name": "@empyria/lab",
 	"version": "0.1.0",
 	"private": true,
 	"description": "Lab services for Principia",
@@ -10,7 +10,7 @@
 	"author": "Imre Fazekas <imre.fazekas@icloud.com>",
 	"repository": {
 		"type": "git",
-		"url": "git+ssh://git@github.com:imrefazekas/principia-nano-services.git"
+		"url": "git+ssh://git@github.com:imrefazekas/empyria-nano-services.git"
 	},
 	"type": "module",
 	"scripts": {
@@ -25,8 +25,8 @@
 	},
 	"dependencies": {
 		"@moleculer/lab": "1.0.0",
-		"@principia/common": "file:../../../principia-common",
-		"@principia/moleculer": "file:../../../principia-guard-moleculer",
+		"@empyria/common": "catalog:",
+		"@empyria/moleculer": "catalog:",
 		"moleculer": "catalog:",
 		"pino": "catalog:"
 	},

@@ -1,4 +1,4 @@
-# principia-nano-services
+# empyria-nano-services
 
 Agent-ready canonical scaffold for **Principia** nano-services, built on Bun and plain
 ESM. It's a multi-app workspace, not a monorepo in the usual sense: it embraces
@@ -33,19 +33,19 @@ docs/                 Longer-form docs that don't belong in a README
 bun install
 ```
 
-This links `@principia/classification`, `@principia/common`, `@principia/moleculer`,
-`@principia/restate`, and `@principia/mcp` from their sibling repos on disk (see
+This links `@empyria/classification`, `@empyria/common`, `@empyria/moleculer`,
+`@empyria/restate`, and `@empyria/mcp` from their sibling repos on disk (see
 [AGENTS.md](./AGENTS.md) for exactly how, and why `workspace:*` doesn't work here). Clone
 these five repos as siblings of this one, under whatever parent directory you like:
 
 ```
 <some parent dir>/
-  principia-classification/
-  principia-common/
-  principia-guard-moleculer/
-  principia-guard-restate/
-  principia-guard-mcp/
-  principia-nano-services/   <- this repo
+  empyria-classification/
+  empyria-common/
+  empyria-guard-moleculer/
+  empyria-guard-restate/
+  empyria-guard-mcp/
+  empyria-nano-services/   <- this repo
 ```
 
 ## Scripts
@@ -83,9 +83,9 @@ cd apps/lab && bun test
 Copy the app under `apps/` that matches the backend you're adding — `apps/moleculer` for
 Moleculer, `apps/restate` for Restate, `apps/mcp` for MCP — as a starting point:
 
-1. `package.json` — rename following the `@principia/<app>-scaffold` convention (e.g.
-   `@principia/mcp-scaffold`, not `@principia/mcp` — the latter collides with the library
-   it depends on, see AGENTS.md), keep `"type": "module"`, declare only the `@principia/*`
+1. `package.json` — rename following the `@empyria/<app>-scaffold` convention (e.g.
+   `@empyria/mcp-scaffold`, not `@empyria/mcp` — the latter collides with the library
+   it depends on, see AGENTS.md), keep `"type": "module"`, declare only the `@empyria/*`
    and npm packages this app's own
    source actually imports.
 2. `env.js` — a `createEnv({...})` schema for anything beyond the shared Principia

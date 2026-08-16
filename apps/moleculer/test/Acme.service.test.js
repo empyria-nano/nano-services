@@ -2,7 +2,7 @@ import { describe, test, expect, afterEach } from 'bun:test'
 import { ServiceBroker } from 'moleculer'
 import Acme from '../services/Acme.service.js'
 import { settings } from '../env.js'
-import { PRINCIPIA_FEDERATION_ID, MOLECULER_SERVICE_ROLE } from '@principia/common'
+import { PRINCIPIA_FEDERATION_ID, MOLECULER_SERVICE_ROLE } from '@empyria/common'
 
 // Acme.service.js only uses BaseMixin (no real network/HTTP I/O), so — unlike
 // Lab.service.js's AgentService — it's safe to start with a real in-process ServiceBroker.

@@ -1,4 +1,4 @@
-import { setupRestate } from '@principia/restate'
+import { setupRestate } from '@empyria/restate'
 
 import { env } from '../env.js'
 
@@ -27,7 +27,7 @@ export const services = [HelloService, AgentService, StorageObject, AcmeWorkflow
  * and registers it with the Restate server's admin API. Exported (rather than run
  * unconditionally) so this module can be imported without side effects, and only
  * actually starts the endpoint when this file is run directly.
- * @returns {Promise<import('@principia/restate').RestateServer>}
+ * @returns {Promise<import('@empyria/restate').RestateServer>}
  */
 export const setup = async () => {
 	return await setupRestate({

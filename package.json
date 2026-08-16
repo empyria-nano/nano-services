@@ -1,11 +1,11 @@
 {
-	"name": "@principia/principia-fluxus",
+	"name": "@empyria/principia-fluxus",
 	"version": "0.1.0",
 	"private": true,
 	"description": "Principia: Agent-ready canonical scaffold for nano-services",
 	"repository": {
 		"type": "git",
-		"url": "git+ssh://git@github.com:imrefazekas/principia-nano-services.git"
+		"url": "git+ssh://git@github.com:imrefazekas/empyria-nano-services.git"
 	},
 	"license": "ISC",
 	"author": "Imre Fazekas",
@@ -25,7 +25,12 @@
 			"@restatedev/restate-sdk-clients": "1.6.1",
 			"@restatedev/restate-sdk-core": "1.6.1",
 			"@modelcontextprotocol/client": "2.0.0",
-			"@modelcontextprotocol/server": "2.0.0"
+			"@modelcontextprotocol/server": "2.0.0",
+			"@empyria/classification": "0.1.0",
+			"@empyria/common": "0.1.0",
+			"@empyria/moleculer": "0.1.0",
+			"@empyria/restate": "0.1.0",
+			"@empyria/mcp": "0.1.0"
 		}
 	},
 	"scripts": {
@@ -39,15 +44,11 @@
 		"test:e2e": "bun test --watch"
 	},
 	"dependencies": {
-		"@principia/classification": "file:../principia-classification",
-		"@principia/common": "file:../principia-common",
-		"@principia/moleculer": "file:../principia-guard-moleculer",
-		"@principia/restate": "file:../principia-guard-restate",
-		"@principia/mcp": "file:../principia-guard-mcp"
-	},
-	"overrides": {
-		"@principia/classification": "file:../principia-classification",
-		"@principia/common": "file:../principia-common"
+		"@empyria/classification": "0.1.0",
+		"@empyria/common": "0.1.0",
+		"@empyria/moleculer": "0.1.0",
+		"@empyria/restate": "0.1.0",
+		"@empyria/mcp": "0.1.0"
 	},
 	"devDependencies": {
 		"oxfmt": "catalog:",

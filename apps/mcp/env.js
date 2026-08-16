@@ -1,4 +1,4 @@
-import { createEnv, validate, string, number } from '@principia/common'
+import { createEnv, validate, string, number } from '@empyria/common'
 
 /**
  * Environment schema for the `mcp` app: the Principia-wide defaults from {@link createEnv}

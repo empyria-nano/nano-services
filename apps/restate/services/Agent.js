@@ -1,4 +1,4 @@
-import { defineService } from '@principia/restate'
+import { defineService } from '@empyria/restate'
 
 /**
  * Restate service standing in for an "agent" capability. There's no built-in "agent"

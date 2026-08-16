@@ -1,4 +1,4 @@
-import { createEnv, validate, number, bool } from '@principia/common'
+import { createEnv, validate, number, bool } from '@empyria/common'
 
 /**
  * Environment schema for the `lab` app: the Principia-wide defaults from

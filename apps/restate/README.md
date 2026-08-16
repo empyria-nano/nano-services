@@ -1,6 +1,6 @@
-# @principia/restate-app
+# @empyria/restate-app
 
-[Restate](https://restate.dev) endpoint for this workspace, built on `@principia/restate`.
+[Restate](https://restate.dev) endpoint for this workspace, built on `@empyria/restate`.
 Reference scaffold demonstrating the four Restate constructs together: a plain service, a
 virtual object, an agent-shaped service, and a workflow orchestrating all three.
 
@@ -16,7 +16,7 @@ virtual object, an agent-shaped service, and a workflow orchestrating all three.
 
 ## Environment variables
 
-All optional — see [env.js](./env.js) for the schema (built on `@principia/common`'s
+All optional — see [env.js](./env.js) for the schema (built on `@empyria/common`'s
 `createEnv`, which adds the shared Principia defaults).
 
 | Variable              | Default                 | Purpose                                                       |
@@ -54,5 +54,5 @@ where clients call in; `RESTATE_PORT` is where Restate calls back into this proc
 `setupRestate` binds a real HTTP/2 port and a health-check port, so — like `apps/lab`'s
 `AgentService` — `Server.js` is shape-tested (`services` is asserted against directly)
 rather than started in tests. Every handler is tested individually with a mocked
-`ctx`, the same pattern `principia-guard-restate`'s own tests use. See the root
+`ctx`, the same pattern `empyria-guard-restate`'s own tests use. See the root
 [AGENTS.md](../../AGENTS.md#testing-philosophy).

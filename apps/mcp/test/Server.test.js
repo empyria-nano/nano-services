@@ -1,7 +1,7 @@
 import { describe, test, expect } from 'bun:test'
 import { InMemoryTransport } from '@modelcontextprotocol/server'
 import { Client } from '@modelcontextprotocol/client'
-import { createMcpServer, serveMcpHttp, connectHttpClient } from '@principia/mcp'
+import { createMcpServer, serveMcpHttp, connectHttpClient } from '@empyria/mcp'
 import { services, setup } from '../services/Server.js'
 import Library from '../services/Library.js'
 import LibraryAdmin, { GUARD_TOKEN_HEADER } from '../services/LibraryAdmin.js'
@@ -9,7 +9,7 @@ import LibraryAdmin, { GUARD_TOKEN_HEADER } from '../services/LibraryAdmin.js'
 // setup() calls serveMcpHttp, which binds env.MCP_PORT for real — not exercised live
 // here. createMcpServer + InMemoryTransport binds no real network resource, so unlike
 // Restate's setupRestate or Moleculer's AgentService, it's safe to drive live here with
-// a real MCP Client, matching principia-guard-mcp's own test convention. See AGENTS.md.
+// a real MCP Client, matching empyria-guard-mcp's own test convention. See AGENTS.md.
 async function connected() {
 	const server = createMcpServer({ name: 'test-server', version: '1.0.0', services })
 	const [clientTransport, serverTransport] = InMemoryTransport.createLinkedPair()

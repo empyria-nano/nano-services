@@ -1,5 +1,5 @@
 {
-	"name": "@principia/restate-scaffold",
+	"name": "@empyria/restate-scaffold",
 	"version": "0.1.0",
 	"private": true,
 	"description": "Restate scaffold for Principia",
@@ -19,8 +19,8 @@
 		"test:watch": "bun test --watch"
 	},
 	"dependencies": {
-		"@principia/common": "file:../../../principia-common",
-		"@principia/restate": "file:../../../principia-guard-restate"
+		"@empyria/common": "catalog:",
+		"@empyria/restate": "catalog:"
 	},
 	"devDependencies": {
 		"oxfmt": "catalog:",

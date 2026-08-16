@@ -10,7 +10,7 @@ import { clearLibrary } from './Library.js'
 export const GUARD_TOKEN_HEADER = 'x-token-key'
 
 /**
- * Demo of `@principia/mcp`'s token-guard feature (`withMetaGuard`, applied automatically
+ * Demo of `@empyria/mcp`'s token-guard feature (`withMetaGuard`, applied automatically
  * by `createMcpServer` to any service that declares `resolveToken`): every action on
  * *this* service requires a resolved token — guarding is per-service, all-or-nothing,
  * which is why this is a separate service from the public `Library` rather than a mixed
@@ -19,11 +19,11 @@ export const GUARD_TOKEN_HEADER = 'x-token-key'
  * This only works over HTTP — tokens travel as request headers (here,
  * {@link GUARD_TOKEN_HEADER}), and stdio (or an in-memory transport, as used in most
  * tests) has none, so a call with no HTTP context is always rejected regardless of
- * token. See `@principia/mcp`'s `lib/Guard.js` docs.
+ * token. See `@empyria/mcp`'s `lib/Guard.js` docs.
  *
  * The token check here is a single hardcoded env var purely for demo purposes — a real
  * deployment should resolve against a real identity/secret store, the way this
- * function's JSDoc parameter names mirror `principia-guard-moleculer`'s `MetaGuard`.
+ * function's JSDoc parameter names mirror `empyria-guard-moleculer`'s `MetaGuard`.
  */
 export default {
 	name: 'LibraryAdmin',

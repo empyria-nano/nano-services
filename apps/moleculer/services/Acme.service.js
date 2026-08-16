@@ -1,4 +1,4 @@
-import { BaseMixin } from '@principia/moleculer'
+import { BaseMixin } from '@empyria/moleculer'
 
 import { settings } from '../env.js'
 

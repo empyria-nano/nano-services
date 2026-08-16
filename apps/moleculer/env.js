@@ -1,4 +1,4 @@
-import { createEnv, validate, number } from '@principia/common'
+import { createEnv, validate, number } from '@empyria/common'
 
 /**
  * Environment schema for the `acme` app: the Principia-wide defaults from

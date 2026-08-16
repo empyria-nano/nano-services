@@ -1,4 +1,4 @@
-import { defineWorkflow } from '@principia/restate'
+import { defineWorkflow } from '@empyria/restate'
 import { HelloService } from './Services.js'
 import { AgentService } from './Agent.js'
 import { StorageObject } from './VirtualObject.js'
