@@ -1,0 +1,57 @@
+{
+	"name": "@principia/principia-fluxus",
+	"version": "0.1.0",
+	"private": true,
+	"description": "Principia: Agent-ready canonical scaffold for nano-services",
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com:imrefazekas/principia-nano-services.git"
+	},
+	"license": "ISC",
+	"author": "Imre Fazekas",
+	"type": "module",
+	"workspaces": {
+		"packages": [
+			"apps/**",
+			"lib/**"
+		],
+		"catalog": {
+			"moleculer": "0.15.1",
+			"oxfmt": "0.63.0",
+			"oxlint": "1.78.0",
+			"pino": "10.3.1"
+		}
+	},
+	"scripts": {
+		"dev": "bun nx run-many -t dev",
+		"start": "bun nx run-many -t start",
+		"format": "bun nx run-many -t format",
+		"format:fix": "bun nx run-many -t format:fix",
+		"lint": "bun nx run-many -t lint",
+		"lint:fix": "bun nx run-many -t lint:fix",
+		"test": "bun nx run-many -t test",
+		"test:e2e": "bun test --watch"
+	},
+	"dependencies": {
+		"@principia/classification": "file:../principia-classification",
+		"@principia/common": "file:../principia-common",
+		"@principia/moleculer": "file:../principia-guard-moleculer",
+		"@principia/restate": "file:../principia-guard-restate",
+		"@principia/mcp": "file:../principia-guard-mcp"
+	},
+	"overrides": {
+		"@principia/classification": "file:../principia-classification",
+		"@principia/common": "file:../principia-common"
+	},
+	"devDependencies": {
+		"oxfmt": "catalog:",
+		"oxlint": "catalog:",
+		"nx": "23.1.1",
+		"rimraf": "6.1.3"
+	},
+	"engines": {
+		"bun": ">=1.4.0",
+		"node": ">=26"
+	},
+	"packageManager": "bun@1.4.0"
+}

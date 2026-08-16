@@ -1,0 +1,34 @@
+{
+	"name": "@principia/acme",
+	"version": "0.1.0",
+	"private": true,
+	"description": "Acme services for Principia",
+	"keywords": [
+		"acme"
+	],
+	"type": "module",
+	"scripts": {
+		"dev": "moleculer-runner --hot services/**/*.service.js",
+		"start": "moleculer-runner services/**/*.service.js",
+		"format": "bun oxfmt --check",
+		"format:fix": "bun oxfmt",
+		"lint": "bun oxlint",
+		"lint:fix": "bun oxlint --fix",
+		"test": "bun test --coverage",
+		"test:watch": "bun test --watch"
+	},
+	"dependencies": {
+		"@principia/common": "file:../../../principia-common",
+		"@principia/moleculer": "file:../../../principia-guard-moleculer",
+		"moleculer": "catalog:",
+		"pino": "catalog:"
+	},
+	"devDependencies": {
+		"oxfmt": "catalog:",
+		"oxlint": "catalog:"
+	},
+	"engines": {
+		"bun": ">=1.4.0",
+		"node": ">=26"
+	}
+}

@@ -1,0 +1,8 @@
+node_modules/
+*.lock
+
+.nx/
+
+# Tmp files (any apps/[service]/tmp, keep the placeholder)
+**/tmp/*
+!**/tmp/.gitkeep

@@ -1,0 +1,41 @@
+{
+	"name": "@principia/lab",
+	"version": "0.1.0",
+	"private": true,
+	"description": "Lab services for Principia",
+	"keywords": [
+		"lab",
+		"monitoring"
+	],
+	"author": "Imre Fazekas <imre.fazekas@icloud.com>",
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com:imrefazekas/principia-nano-services.git"
+	},
+	"type": "module",
+	"scripts": {
+		"dev": "moleculer-runner --hot services/**/*.service.js",
+		"start": "moleculer-runner services/**/*.service.js",
+		"format": "bun oxfmt --check",
+		"format:fix": "bun oxfmt",
+		"lint": "bun oxlint",
+		"lint:fix": "bun oxlint --fix",
+		"test": "bun test --coverage",
+		"test:watch": "bun test --watch"
+	},
+	"dependencies": {
+		"@moleculer/lab": "1.0.0",
+		"@principia/common": "file:../../../principia-common",
+		"@principia/moleculer": "file:../../../principia-guard-moleculer",
+		"moleculer": "catalog:",
+		"pino": "catalog:"
+	},
+	"devDependencies": {
+		"oxfmt": "catalog:",
+		"oxlint": "catalog:"
+	},
+	"engines": {
+		"bun": ">=1.4.0",
+		"node": ">=26"
+	}
+}
