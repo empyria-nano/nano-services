@@ -2,10 +2,10 @@
 
 Agent-ready canonical scaffold for **Principia** nano-services, built on Bun and plain
 ESM. It's a multi-app workspace, not a monorepo in the usual sense: it embraces
-independent *applications* — Moleculer services today, Restate workflows or MCP servers
-as they're added — alongside project-specific libraries, and runs them as a single unit
-via [nx](https://nx.dev). Each app stays a self-contained, individually documented and
-tested unit; this repo is the scaffold that assembles them.
+independent _applications_ — Moleculer services, Restate workflows, MCP servers — side by
+side, alongside project-specific libraries, and runs them as a single unit via
+[nx](https://nx.dev). Each app stays a self-contained, individually documented and tested
+unit; this repo is the scaffold that assembles them.
 
 ## Requirements
 
@@ -15,7 +15,7 @@ tested unit; this repo is the scaffold that assembles them.
 ## Layout
 
 ```
-apps/<name>/         One app per service (Moleculer today; Restate/MCP as they're added)
+apps/<name>/         One app per service (Moleculer, Restate, or MCP)
   package.json        type: module, its own dependencies, dev/start/format/lint/test scripts
   env.js               Validated process.env for this app (see AGENTS.md for the gotchas)
   moleculer.config.js  ServiceBroker configuration (Moleculer apps only)
@@ -71,35 +71,46 @@ cd apps/lab && bun test
 
 ## Apps
 
-| App | Purpose |
-| --- | --- |
-| [apps/lab](./apps/lab/README.md) | Moleculer service hosting the `@moleculer/lab` monitoring dashboard (metrics, tracing, logs). |
-| [apps/acme](./apps/acme/README.md) | Starter Moleculer service scaffold — no custom actions yet; the template to copy for a new service. |
+| App                                          | Purpose                                                                                                                   |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| [apps/lab](./apps/lab/README.md)             | Moleculer service hosting the `@moleculer/lab` monitoring dashboard (metrics, tracing, logs).                             |
+| [apps/moleculer](./apps/moleculer/README.md) | Starter Moleculer service scaffold — no custom actions yet; the template to copy for a new Moleculer service.             |
+| [apps/restate](./apps/restate/README.md)     | Restate endpoint scaffold — a service, a virtual object, an agent-shaped service, and a workflow orchestrating all three. |
+| [apps/mcp](./apps/mcp/README.md)             | MCP endpoint scaffold — a Moleculer-shaped `{ name, actions }` service published as MCP tools.                            |
 
 ## Adding a new app
 
-Copy `apps/acme` as a starting point:
+Copy the app under `apps/` that matches the backend you're adding — `apps/moleculer` for
+Moleculer, `apps/restate` for Restate, `apps/mcp` for MCP — as a starting point:
 
-1. `package.json` — rename, keep `"type": "module"`, declare only the `@principia/*` and
-   npm packages this app's own source actually imports (see AGENTS.md on why
-   `@principia/classification` usually shouldn't be a direct dependency).
+1. `package.json` — rename following the `@principia/<app>-scaffold` convention (e.g.
+   `@principia/mcp-scaffold`, not `@principia/mcp` — the latter collides with the library
+   it depends on, see AGENTS.md), keep `"type": "module"`, declare only the `@principia/*`
+   and npm packages this app's own
+   source actually imports.
 2. `env.js` — a `createEnv({...})` schema for anything beyond the shared Principia
-   defaults, validated with `{ coerceTypes: true }` against a *copy* of `process.env`.
-3. `moleculer.config.js` — copy as-is; it reads everything from `env.js`.
-4. `services/<Name>.service.js` — mix in `BaseMixin` (from `@principia/moleculer`) at
-   minimum; keep `settings: {}` unless you deliberately need env values exposed to the
-   broker (see AGENTS.md on the settings/secrets footgun).
+   defaults, validated with `{ coerceTypes: true }` against a _copy_ of `process.env`.
+3. Moleculer apps: `moleculer.config.js` copies as-is (it reads everything from `env.js`);
+   `services/<Name>.service.js` mixes in `BaseMixin` at minimum. Restate/MCP apps have no
+   auto-discovery — `services/Server.js` is a real entrypoint, guarded with
+   `if (import.meta.main) { await setup() }` so it's still side-effect-free to import
+   (e.g. from a test) — see AGENTS.md.
+4. Decide whether a service's `settings`/exported state should be the full env-derived
+   object (the standard, simplest option) or a cherry-picked subset, based on whether it
+   might ever be exposed beyond trusted callers — see AGENTS.md.
 5. `test/` — one test file per source file, following the existing apps' pattern.
 6. A short `README.md` for the app (what it does, its env vars, how to run it).
 
 ## Testing philosophy
 
-Services that bind real network I/O on start (like `apps/lab`'s `AgentService`, which
-opens an HTTP port for the dashboard) are shape-tested — their declarative Moleculer
-service object is asserted against, but no live broker is started for them. Services
-built only on `BaseMixin` (no real I/O of their own) are tested with a real, in-process
-`ServiceBroker` (no transporter) — see `apps/acme/test/Acme.service.test.js` for the
-pattern. See [AGENTS.md](./AGENTS.md) for the reasoning.
+Services that bind real network I/O on start (like `apps/lab`'s `AgentService`, or
+`apps/restate`'s `setupRestate`) are shape-tested — their declarative service object is
+asserted against, but nothing is started live. Services with no real I/O of their own —
+Moleculer services built only on `BaseMixin` (see
+`apps/moleculer/test/Acme.service.test.js`), or MCP servers driven over an
+`InMemoryTransport` (see `apps/mcp/test/Server.test.js`, which binds no real resource
+despite going through a real MCP `Client`) — are tested live. See
+[AGENTS.md](./AGENTS.md) for the reasoning.
 
 ## License
 

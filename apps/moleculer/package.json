@@ -1,10 +1,11 @@
 {
-	"name": "@principia/acme",
+	"name": "@principia/moleculer-scaffold",
 	"version": "0.1.0",
 	"private": true,
-	"description": "Acme services for Principia",
+	"description": "Moleculer scaffold for Principia",
 	"keywords": [
-		"acme"
+		"moleculer",
+		"scaffold"
 	],
 	"type": "module",
 	"scripts": {

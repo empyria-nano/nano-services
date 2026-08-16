@@ -1,4 +1,4 @@
-# @principia/acme
+# @principia/moleculer-scaffold
 
 Starter Moleculer service scaffold for this workspace — no custom actions, events, or
 methods yet. It's the template to copy when adding a new Moleculer app: wired up with

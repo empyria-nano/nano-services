@@ -16,10 +16,16 @@
 			"lib/**"
 		],
 		"catalog": {
+			"croner": "10.0.1",
 			"moleculer": "0.15.1",
 			"oxfmt": "0.63.0",
 			"oxlint": "1.78.0",
-			"pino": "10.3.1"
+			"pino": "10.3.1",
+			"@restatedev/restate-sdk": "1.6.1",
+			"@restatedev/restate-sdk-clients": "1.6.1",
+			"@restatedev/restate-sdk-core": "1.6.1",
+			"@modelcontextprotocol/client": "2.0.0",
+			"@modelcontextprotocol/server": "2.0.0"
 		}
 	},
 	"scripts": {

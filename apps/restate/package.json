@@ -1,0 +1,33 @@
+{
+	"name": "@principia/restate-scaffold",
+	"version": "0.1.0",
+	"private": true,
+	"description": "Restate scaffold for Principia",
+	"keywords": [
+		"restate",
+		"scaffold"
+	],
+	"type": "module",
+	"scripts": {
+		"dev": "bun --hot services/Server.js",
+		"start": "bun services/Server.js",
+		"format": "bun oxfmt --check",
+		"format:fix": "bun oxfmt",
+		"lint": "bun oxlint",
+		"lint:fix": "bun oxlint --fix",
+		"test": "bun test --coverage",
+		"test:watch": "bun test --watch"
+	},
+	"dependencies": {
+		"@principia/common": "file:../../../principia-common",
+		"@principia/restate": "file:../../../principia-guard-restate"
+	},
+	"devDependencies": {
+		"oxfmt": "catalog:",
+		"oxlint": "catalog:"
+	},
+	"engines": {
+		"bun": ">=1.4.0",
+		"node": ">=26"
+	}
+}

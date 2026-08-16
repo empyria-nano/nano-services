@@ -1,0 +1,34 @@
+{
+	"name": "@principia/mcp-scaffold",
+	"version": "0.1.0",
+	"private": true,
+	"description": "MCP scaffold for Principia",
+	"keywords": [
+		"mcp"
+	],
+	"type": "module",
+	"scripts": {
+		"dev": "bun --hot services/Server.js",
+		"start": "bun services/Server.js",
+		"format": "bun oxfmt --check",
+		"format:fix": "bun oxfmt",
+		"lint": "bun oxlint",
+		"lint:fix": "bun oxlint --fix",
+		"test": "bun test --coverage",
+		"test:watch": "bun test --watch"
+	},
+	"dependencies": {
+		"@principia/common": "file:../../../principia-common",
+		"@principia/mcp": "file:../../../principia-guard-mcp"
+	},
+	"devDependencies": {
+		"@modelcontextprotocol/client": "catalog:",
+		"@modelcontextprotocol/server": "catalog:",
+		"oxfmt": "catalog:",
+		"oxlint": "catalog:"
+	},
+	"engines": {
+		"bun": ">=1.4.0",
+		"node": ">=26"
+	}
+}
