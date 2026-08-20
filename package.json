@@ -1,11 +1,11 @@
 {
 	"name": "@empyria/empyria-fluxus",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"private": true,
 	"description": "Empyria: Agent-ready canonical scaffold for nano-services",
 	"repository": {
 		"type": "git",
-		"url": "git+ssh://git@github.com:imrefazekas/empyria-nano-services.git"
+		"url": "git+ssh://git@github.com/empyria-nano/nano-services.git"
 	},
 	"license": "ISC",
 	"author": "Imre Fazekas",
@@ -26,11 +26,11 @@
 			"@restatedev/restate-sdk-core": "1.6.1",
 			"@modelcontextprotocol/client": "2.0.0",
 			"@modelcontextprotocol/server": "2.0.0",
-			"@empyria/classification": "0.1.1",
-			"@empyria/common": "0.1.1",
-			"@empyria/moleculer": "0.1.1",
-			"@empyria/restate": "0.1.1",
-			"@empyria/mcp": "0.1.1"
+			"@empyria/classification": "0.1.2",
+			"@empyria/common": "0.1.2",
+			"@empyria/moleculer": "0.1.2",
+			"@empyria/restate": "0.1.2",
+			"@empyria/mcp": "0.1.2"
 		}
 	},
 	"scripts": {
@@ -44,11 +44,11 @@
 		"test:e2e": "bun test --watch"
 	},
 	"dependencies": {
-		"@empyria/classification": "0.1.1",
-		"@empyria/common": "0.1.1",
-		"@empyria/moleculer": "0.1.1",
-		"@empyria/restate": "0.1.1",
-		"@empyria/mcp": "0.1.1"
+		"@empyria/classification": "0.1.2",
+		"@empyria/common": "0.1.2",
+		"@empyria/moleculer": "0.1.2",
+		"@empyria/restate": "0.1.2",
+		"@empyria/mcp": "0.1.2"
 	},
 	"devDependencies": {
 		"oxfmt": "catalog:",
