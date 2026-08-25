@@ -1,0 +1,32 @@
+{
+	"name": "@empyria/webapp-scaffold",
+	"version": "0.1.0",
+	"private": true,
+	"description": "Webapp scaffold for Empyria",
+	"keywords": [
+		"web",
+		"scaffold"
+	],
+	"type": "module",
+	"scripts": {
+		"dev": "bun --hot services/Server.js",
+		"start": "bun services/Server.js",
+		"format": "bun oxfmt --check",
+		"format:fix": "bun oxfmt",
+		"lint": "bun oxlint",
+		"lint:fix": "bun oxlint --fix",
+		"test": "bun test --coverage",
+		"test:watch": "bun test --watch"
+	},
+	"dependencies": {
+		"@empyria/webui": "catalog:"
+	},
+	"devDependencies": {
+		"oxfmt": "catalog:",
+		"oxlint": "catalog:"
+	},
+	"engines": {
+		"bun": ">=1.4.0",
+		"node": ">=26"
+	}
+}

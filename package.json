@@ -30,7 +30,8 @@
 			"@empyria/common": "0.1.3",
 			"@empyria/moleculer": "0.1.3",
 			"@empyria/restate": "0.1.6",
-			"@empyria/mcp": "0.1.3"
+			"@empyria/mcp": "0.1.3",
+			"@empyria/webui": "0.1.3"
 		}
 	},
 	"scripts": {
