@@ -27,10 +27,10 @@
 			"@modelcontextprotocol/client": "2.0.0",
 			"@modelcontextprotocol/server": "2.0.0",
 			"@empyria/classification": "0.1.3",
-			"@empyria/common": "0.1.3",
-			"@empyria/moleculer": "0.1.3",
-			"@empyria/restate": "0.1.6",
-			"@empyria/mcp": "0.1.3",
+			"@empyria/common": "0.1.4",
+			"@empyria/moleculer": "0.1.4",
+			"@empyria/restate": "0.1.7",
+			"@empyria/mcp": "0.1.4",
 			"@empyria/webui": "0.1.3"
 		}
 	},
@@ -46,10 +46,10 @@
 	},
 	"dependencies": {
 		"@empyria/classification": "0.1.3",
-		"@empyria/common": "0.1.3",
-		"@empyria/moleculer": "0.1.3",
-		"@empyria/restate": "0.1.6",
-		"@empyria/mcp": "0.1.3"
+		"@empyria/common": "0.1.4",
+		"@empyria/moleculer": "0.1.4",
+		"@empyria/restate": "0.1.7",
+		"@empyria/mcp": "0.1.4"
 	},
 	"devDependencies": {
 		"oxfmt": "catalog:",
