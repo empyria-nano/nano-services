@@ -26,11 +26,11 @@
 			"@restatedev/restate-sdk-core": "1.6.1",
 			"@modelcontextprotocol/client": "2.0.0",
 			"@modelcontextprotocol/server": "2.0.0",
-			"@empyria/classification": "0.1.5",
-			"@empyria/common": "0.1.8",
-			"@empyria/moleculer": "0.1.7",
-			"@empyria/restate": "0.1.10",
-			"@empyria/mcp": "0.1.8",
+			"@empyria/classification": "0.1.6",
+			"@empyria/common": "0.1.9",
+			"@empyria/moleculer": "0.1.8",
+			"@empyria/restate": "0.1.11",
+			"@empyria/mcp": "0.1.9",
 			"@empyria/webui": "0.1.3"
 		}
 	},
@@ -45,11 +45,11 @@
 		"test:e2e": "bun test --watch"
 	},
 	"dependencies": {
-		"@empyria/classification": "0.1.5",
-		"@empyria/common": "0.1.8",
-		"@empyria/moleculer": "0.1.7",
-		"@empyria/restate": "0.1.10",
-		"@empyria/mcp": "0.1.8"
+		"@empyria/classification": "0.1.6",
+		"@empyria/common": "0.1.9",
+		"@empyria/moleculer": "0.1.8",
+		"@empyria/restate": "0.1.11",
+		"@empyria/mcp": "0.1.9"
 	},
 	"devDependencies": {
 		"oxfmt": "catalog:",
@@ -58,8 +58,8 @@
 		"rimraf": "6.1.3"
 	},
 	"engines": {
-		"bun": ">=1.4.0",
+		"bun": ">=1.4.2",
 		"node": ">=26"
 	},
-	"packageManager": "bun@1.4.0"
+	"packageManager": "bun@1.4.2"
 }
