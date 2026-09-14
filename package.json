@@ -1,6 +1,6 @@
 {
 	"name": "@empyria/empyria-fluxus",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"private": true,
 	"description": "Empyria: Agent-ready canonical scaffold for nano-services",
 	"repository": {
@@ -26,11 +26,11 @@
 			"@restatedev/restate-sdk-core": "1.6.1",
 			"@modelcontextprotocol/client": "2.0.0",
 			"@modelcontextprotocol/server": "2.0.0",
-			"@empyria/classification": "0.1.6",
-			"@empyria/common": "0.3.1",
-			"@empyria/moleculer": "0.1.11",
-			"@empyria/restate": "0.1.13",
-			"@empyria/mcp": "0.1.11",
+			"@empyria/classification": "0.1.7",
+			"@empyria/common": "0.3.2",
+			"@empyria/moleculer": "0.1.12",
+			"@empyria/restate": "0.1.15",
+			"@empyria/mcp": "0.1.12",
 			"@empyria/webui": "0.1.3"
 		}
 	},
@@ -45,11 +45,11 @@
 		"test:e2e": "bun test --watch"
 	},
 	"dependencies": {
-		"@empyria/classification": "0.1.6",
-		"@empyria/common": "0.3.1",
-		"@empyria/moleculer": "0.1.11",
-		"@empyria/restate": "0.1.13",
-		"@empyria/mcp": "0.1.11"
+		"@empyria/classification": "0.1.7",
+		"@empyria/common": "0.3.2",
+		"@empyria/moleculer": "0.1.12",
+		"@empyria/restate": "0.1.15",
+		"@empyria/mcp": "0.1.12"
 	},
 	"devDependencies": {
 		"oxfmt": "catalog:",
