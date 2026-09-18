@@ -1,6 +1,6 @@
 {
 	"name": "@empyria/empyria-fluxus",
-	"version": "0.1.6",
+	"version": "0.1.7",
 	"private": true,
 	"description": "Empyria: Agent-ready canonical scaffold for nano-services",
 	"repository": {
@@ -27,10 +27,10 @@
 			"@modelcontextprotocol/client": "2.0.0",
 			"@modelcontextprotocol/server": "2.0.0",
 			"@empyria/classification": "0.1.7",
-			"@empyria/common": "0.3.3",
-			"@empyria/moleculer": "0.1.13",
-			"@empyria/restate": "0.1.17",
-			"@empyria/mcp": "0.1.13",
+			"@empyria/common": "0.3.5",
+			"@empyria/moleculer": "0.1.15",
+			"@empyria/restate": "0.1.19",
+			"@empyria/mcp": "0.1.15",
 			"@empyria/webui": "0.1.13"
 		}
 	},
@@ -46,10 +46,10 @@
 	},
 	"dependencies": {
 		"@empyria/classification": "0.1.7",
-		"@empyria/common": "0.3.3",
-		"@empyria/moleculer": "0.1.13",
-		"@empyria/restate": "0.1.17",
-		"@empyria/mcp": "0.1.13"
+		"@empyria/common": "0.3.5",
+		"@empyria/moleculer": "0.1.15",
+		"@empyria/restate": "0.1.19",
+		"@empyria/mcp": "0.1.15"
 	},
 	"devDependencies": {
 		"oxfmt": "catalog:",
