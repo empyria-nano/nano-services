@@ -31,7 +31,7 @@
 			"@empyria/moleculer": "0.1.19",
 			"@empyria/restate": "0.2.2",
 			"@empyria/mcp": "0.1.20",
-			"@empyria/webui": "0.1.20""
+			"@empyria/webui": "0.1.20"
 		}
 	},
 	"scripts": {
