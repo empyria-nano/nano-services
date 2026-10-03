@@ -57,7 +57,7 @@ links _everywhere in the install tree_, without editing those repos:
   "@empyria/classification": "0.1.0",
   "@empyria/common": "0.1.0",
   "@empyria/moleculer": "0.1.0",
-  "@empyria/restate": "0.2.1",
+  "@empyria/restate": "0.2.2",
   "@empyria/mcp": "0.1.0"
 },
 ```

@@ -29,9 +29,9 @@
 			"@empyria/classification": "0.1.9",
 			"@empyria/common": "0.3.9",
 			"@empyria/moleculer": "0.1.19",
-			"@empyria/restate": "0.2.1",
-			"@empyria/mcp": "0.1.19",
-			"@empyria/webui": "0.1.13"
+			"@empyria/restate": "0.2.2",
+			"@empyria/mcp": "0.1.20",
+			"@empyria/webui": "0.1.20""
 		}
 	},
 	"scripts": {
@@ -48,8 +48,8 @@
 		"@empyria/classification": "0.1.9",
 		"@empyria/common": "0.3.9",
 		"@empyria/moleculer": "0.1.19",
-		"@empyria/restate": "0.2.1",
-		"@empyria/mcp": "0.1.19"
+		"@empyria/restate": "0.2.2",
+		"@empyria/mcp": "0.1.20"
 	},
 	"devDependencies": {
 		"oxfmt": "catalog:",
