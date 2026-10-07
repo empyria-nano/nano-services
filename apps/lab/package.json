@@ -1,0 +1,41 @@
+{
+	"name": "@empyria/lab",
+	"version": "0.1.0",
+	"private": true,
+	"description": "Lab services for Empyria",
+	"keywords": [
+		"lab",
+		"monitoring"
+	],
+	"author": "Imre Fazekas <imre.fazekas@icloud.com>",
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com:imrefazekas/empyria-nano-services.git"
+	},
+	"type": "module",
+	"scripts": {
+		"dev": "moleculer-runner --hot services/**/*.service.js",
+		"start": "moleculer-runner services/**/*.service.js",
+		"format": "bun oxfmt --check",
+		"format:fix": "bun oxfmt",
+		"lint": "bun oxlint",
+		"lint:fix": "bun oxlint --fix",
+		"test": "bun test --coverage",
+		"test:watch": "bun test --watch"
+	},
+	"dependencies": {
+		"@empyria/common": "catalog:",
+		"@empyria/moleculer": "catalog:",
+		"@moleculer/lab": "1.0.0",
+		"moleculer": "catalog:",
+		"pino": "catalog:"
+	},
+	"devDependencies": {
+		"oxfmt": "catalog:",
+		"oxlint": "catalog:"
+	},
+	"engines": {
+		"bun": ">=1.4.2",
+		"node": ">=26"
+	}
+}

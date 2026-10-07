@@ -1,0 +1,33 @@
+{
+	"name": "@empyria/restate-scaffold",
+	"version": "0.1.0",
+	"private": true,
+	"description": "Restate scaffold for Empyria",
+	"keywords": [
+		"restate",
+		"scaffold"
+	],
+	"type": "module",
+	"scripts": {
+		"dev": "bun --hot services/Server.js",
+		"start": "bun services/Server.js",
+		"format": "bun oxfmt --check",
+		"format:fix": "bun oxfmt",
+		"lint": "bun oxlint",
+		"lint:fix": "bun oxlint --fix",
+		"test": "bun test --coverage",
+		"test:watch": "bun test --watch"
+	},
+	"dependencies": {
+		"@empyria/common": "catalog:",
+		"@empyria/restate": "catalog:"
+	},
+	"devDependencies": {
+		"oxfmt": "catalog:",
+		"oxlint": "catalog:"
+	},
+	"engines": {
+		"bun": ">=1.4.2",
+		"node": ">=26"
+	}
+}
