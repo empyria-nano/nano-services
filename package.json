@@ -26,12 +26,12 @@
 			"@restatedev/restate-sdk-core": "1.6.1",
 			"@modelcontextprotocol/client": "2.0.0",
 			"@modelcontextprotocol/server": "2.0.0",
-			"@empyria/classification": "0.1.13",
-			"@empyria/common": "0.3.16",
-			"@empyria/moleculer": "0.1.27",
-			"@empyria/restate": "0.4.28",
-			"@empyria/mcp": "0.1.27",
-			"@empyria/webui": "0.1.32"
+			"@empyria/classification": "0.1.14",
+			"@empyria/common": "0.3.17",
+			"@empyria/moleculer": "0.1.28",
+			"@empyria/restate": "0.4.30",
+			"@empyria/mcp": "0.1.28",
+			"@empyria/webui": "0.1.33"
 		}
 	},
 	"scripts": {
@@ -45,16 +45,16 @@
 		"test:e2e": "bun test --watch"
 	},
 	"dependencies": {
-		"@empyria/classification": "0.1.13",
-		"@empyria/common": "0.3.16",
-		"@empyria/moleculer": "0.1.27",
-		"@empyria/restate": "0.4.28",
-		"@empyria/mcp": "0.1.27"
+		"@empyria/classification": "0.1.14",
+		"@empyria/common": "0.3.17",
+		"@empyria/moleculer": "0.1.28",
+		"@empyria/restate": "0.4.30",
+		"@empyria/mcp": "0.1.28"
 	},
 	"devDependencies": {
 		"oxfmt": "catalog:",
 		"oxlint": "catalog:",
-		"nx": "24.0.1",
+		"nx": "24.0.2",
 		"rimraf": "6.1.3"
 	},
 	"engines": {
